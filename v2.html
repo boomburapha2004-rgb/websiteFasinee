@@ -3,37 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me - บูรพา ม่านกลาง</title>
+  <title>About Me - ฟ้าศินี มีเอียด</title>
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Sarabun', sans-serif; background: #0a0a0a; color: white; min-height: 100vh; }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 30px; background: rgba(10,10,10,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 700; }
+    body { font-family: 'Sarabun', sans-serif; background: #e8f4fc; color: #1a3a5c; min-height: 100vh; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 30px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(30,90,160,0.15);
+      box-shadow: 0 2px 12px rgba(30,90,160,0.08);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 700; color: #1e5aa0; }
     .nav-logo img { width: 36px; height: 36px; object-fit: contain; }
     .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.95rem; transition: color 0.2s; }
-    .nav-links a:hover { color: #fff; }
-    .nav-search { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 1.1rem; cursor: pointer; }
-    .hero { padding-top: 110px; padding-bottom: 55px; background: linear-gradient(180deg, #fbd46856 0%, #b9422d 60%, #922a18 100%); text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%); }
-    .hero-title { font-size: 3.2rem; font-weight: 700; letter-spacing: 8px; text-transform: uppercase; position: relative; animation: fadeDown 0.7s ease both; }
-    .hero-line { width: 600px; max-width: 80%; height: 2px; background: linear-gradient(90deg, transparent, #fdce56, transparent); margin: 18px auto 0; animation: fadeDown 0.9s ease 0.2s both; }
+    .nav-links a { color: #2e6db4; text-decoration: none; font-size: 0.95rem; font-weight: 600; transition: color 0.2s; }
+    .nav-links a:hover { color: #0a4a8a; }
+    .nav-search { background: none; border: none; color: #2e6db4; font-size: 1.1rem; cursor: pointer; }
+
+    .hero {
+      padding-top: 110px; padding-bottom: 55px;
+      background: linear-gradient(160deg, #c8e6f8 0%, #90c8f0 40%, #4a9fd8 75%, #2070b0 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpolygon fill='none' stroke='rgba(255,255,255,0.18)' stroke-width='1.5' points='40,2 76,22 76,70 40,90 4,70 4,22'/%3E%3C/svg%3E");
+      background-size: 80px 92px;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 80'%3E%3Cpolyline fill='none' stroke='rgba(255,255,255,0.35)' stroke-width='2' points='0,60 100,40 200,55 300,20 400,45 500,30 600,50 700,25 800,40'/%3E%3Cpolyline fill='none' stroke='rgba(255,255,255,0.2)' stroke-width='1.5' points='0,70 100,50 200,65 300,35 400,60 500,42 600,62 700,38 800,55'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: cover;
+    }
+    .hero-title {
+      font-size: 3.2rem; font-weight: 700; letter-spacing: 8px; text-transform: uppercase;
+      color: #fff; text-shadow: 0 2px 12px rgba(0,60,120,0.25);
+      position: relative; z-index: 1;
+      animation: fadeDown 0.7s ease both;
+    }
+    .hero-line {
+      width: 600px; max-width: 80%; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+      margin: 18px auto 0; position: relative; z-index: 1;
+      animation: fadeDown 0.9s ease 0.2s both;
+    }
     @keyframes fadeDown { from { opacity: 0; transform: translateY(-18px); } to { opacity: 1; transform: translateY(0); } }
-    .content { background: linear-gradient(135deg, #f6c7bf 0%, #e07a6a 40%, #c94f3a 70%, #AC3520 100%); padding: 70px 40px; min-height: 60vh; display: flex; align-items: center; justify-content: center; }
-    .about-card { display: flex; align-items: flex-start; gap: 55px; max-width: 880px; width: 100%; animation: fadeUp 0.8s ease 0.2s both; }
+
+    .content {
+      background: linear-gradient(180deg, #3a8acc 0%, #2070b0 35%, #155090 70%, #0d3870 100%);
+      padding: 70px 40px; min-height: 60vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .content::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='92' viewBox='0 0 80 92'%3E%3Cpolygon fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='1' points='40,2 76,22 76,70 40,90 4,70 4,22'/%3E%3C/svg%3E");
+      background-size: 80px 92px;
+      pointer-events: none;
+    }
+
+    .about-card {
+      display: flex; align-items: flex-start; gap: 55px;
+      max-width: 880px; width: 100%;
+      position: relative; z-index: 1;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
-    .photo-wrapper { flex-shrink: 0; width: 195px; height: 255px; overflow: hidden; background: #1e3a5f; display: flex; align-items: center; justify-content: center; }
+
+    .photo-wrapper {
+      flex-shrink: 0; width: 195px; height: 255px;
+      overflow: hidden; border-radius: 4px;
+      border: 3px solid rgba(255,255,255,0.6);
+      box-shadow: 0 0 40px rgba(0,80,160,0.45), 0 8px 32px rgba(0,0,0,0.25);
+      background: #1a5080;
+      display: flex; align-items: center; justify-content: center;
+    }
     .photo-wrapper img { width: 100%; height: 100%; object-fit: cover; }
     .photo-placeholder { color: rgba(255,255,255,0.35); font-size: 0.8rem; text-align: center; padding: 10px; line-height: 1.8; }
+
     .info { display: flex; flex-direction: column; gap: 14px; padding-top: 8px; }
     .info-row { font-size: 0.9rem; color: #fff; letter-spacing: 0.8px; line-height: 1.7; text-transform: uppercase; }
     .info-row.name { font-size: 1rem; font-weight: 700; color: #ffffff; }
-    .info-row a { color: #ffe08a; text-decoration: underline; text-transform: none; }
+    .info-row a { color: #90d0ff; text-decoration: underline; text-transform: none; }
     .info-row a:hover { color: #fff; }
-    .back-btn { display: inline-block; margin-top: 20px; padding: 10px 28px; border: 1.5px solid rgba(255,255,255,0.6); color: white; text-decoration: none; font-family: 'Sarabun', sans-serif; font-size: 0.88rem; letter-spacing: 1px; border-radius: 2px; transition: all 0.2s; }
-    .back-btn:hover { background: rgba(255,255,255,0.15); border-color: white; }
-    @media (max-width: 640px) { .about-card { flex-direction: column; align-items: center; } .info { align-items: center; text-align: center; } .hero-title { font-size: 2rem; letter-spacing: 4px; } }
+
+    .back-btn {
+      display: inline-block; margin-top: 20px; padding: 10px 28px;
+      border: 1.5px solid rgba(255,255,255,0.55); color: white;
+      text-decoration: none; font-family: 'Sarabun', sans-serif;
+      font-size: 0.88rem; letter-spacing: 1px; border-radius: 2px;
+      transition: all 0.2s; background: rgba(255,255,255,0.08);
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.22); border-color: #90d0ff; color: #d0eeff; box-shadow: 0 0 16px rgba(100,180,255,0.25); }
+
+    @media (max-width: 640px) {
+      .about-card { flex-direction: column; align-items: center; }
+      .info { align-items: center; text-align: center; }
+      .hero-title { font-size: 2rem; letter-spacing: 4px; }
+    }
   </style>
 </head>
 <body>
@@ -57,21 +132,21 @@
   <section class="content">
     <div class="about-card">
       <div class="photo-wrapper">
-        <img src="./profile.jpg" alt="บูรพา ม่านกลาง"
+        <img src="./profile.jpg" alt="ฟ้าศินี มีเอียด"
           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <div class="photo-placeholder" style="display:none;">📷<br>profile.jpg</div>
       </div>
       <div class="info">
-        <div class="info-row name">MR. BURAPHA &nbsp; MANKLANG</div>
-        <div class="info-row">STUDENT ID : 6802012510096</div>
+        <div class="info-row name">Miss FASINEE &nbsp;  MEEAIAD</div>
+        <div class="info-row">STUDENT ID : 6802012510134</div>
         <div class="info-row">
-          STUDYING : TTP, FACULTY OF TECHNICAL EDUCATION.<br>
+          STUDYING : TTP , FACULTY OF TECHNICAL EDUCATION.<br>
           KING MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK
         </div>
         <div class="info-row">
-          EMAIL : <a href="mailto:boomburapha2004&#64;gmail.com">boomburapha2004&#64;gmail.com</a>
+          EMAIL : <a href="mailto: Fasinee240746@gmail.com">boomburapha2004@gmail.com</a>
         </div>
-        <div class="info-row">TEL : 064-037-8258</div>
+        <div class="info-row">TEL :  065-618-5138</div>
         <a href="v1.html" class="back-btn">← กลับหน้าแรก</a>
       </div>
     </div>
