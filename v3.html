@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ผลงาน - บูรพา ม่านกลาง</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background: #0a0a0a;
+      color: white;
+      min-height: 100vh;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 30px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-logo img { width: 36px; height: 36px; object-fit: contain; }
+    .nav-logo span { font-size: 1.1rem; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-search {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    /* HERO - สีส้มแบบเดียวกับ vab1 */
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 60px;
+      background: linear-gradient(180deg, #fbd46856 0%, #b9422d 60%, #922a18 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%);
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 4px;
+      position: relative;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .hero-line {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #fdce56, transparent);
+      margin: 18px auto 0;
+      animation: fadeDown 1s ease 0.2s both;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      min-height: 70vh;
+      background: linear-gradient(135deg, #f6c7bf 0%, #e07a6a 40%, #c94f3a 70%, #AC3520 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* วงกลมลอย (เหมือนในรูป) */
+    .bubbles {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 110px;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 11, 117, 0.585);
+      animation: floatBubble var(--d, 4s) ease-in-out infinite alternate;
+    }
+
+    @keyframes floatBubble {
+      from { transform: translateY(0px); }
+      to   { transform: translateY(-18px); }
+    }
+
+    /* Stars */
+    .stars {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: rgb(255, 252, 86);
+      animation: twinkle var(--d, 3s) ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.1; }
+      to   { opacity: 0.7; }
+    }
+
+    /* GRID ปุ่มเทอม */
+    .term-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 30px;
+      width: 100%;
+      max-width: 680px;
+      margin-top: 30px;
+      animation: fadeUp 0.9s ease 0.3s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .term-btn {
+      display: block;
+      padding: 13px 0;
+      text-align: center;
+      background: rgba(255,255,255,0.92);
+      color: #333;
+      font-family: 'Sarabun', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: 0.5px;
+    }
+
+    .term-btn:hover {
+      background: #fdce56;
+      color: #222;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    .back-btn {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      margin-top: 36px;
+      padding: 10px 28px;
+      border: 1.5px solid rgba(255,255,255,0.6);
+      color: white;
+      text-decoration: none;
+      font-family: 'Sarabun', sans-serif;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      transition: all 0.2s;
+      animation: fadeUp 1s ease 0.5s both;
+    }
+
+    .back-btn:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">
+      <img src="./logo.png.png" alt="Logo" onerror="this.style.display='none'">
+      <span>Home</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="vab1.html">หน้าแรก</a></li>
+      <li><a href="vab3.html">Activity</a></li>
+    </ul>
+    <button class="nav-search">🔍</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1 class="hero-title">ผลงาน</h1>
+    <div class="hero-line"></div>
+  </section>
+
+  <!-- MAIN -->
+  <section class="main">
+
+    <!-- วงกลมลอย -->
+    <div class="bubbles" id="bubbles"></div>
+
+    <!-- ดาว -->
+    <div class="stars" id="stars"></div>
+
+    <!-- ปุ่มเทอม -->
+    <div class="term-grid">
+      <a href="Term1.html" target="_blank" class="term-btn">เทอม 1/2568</a>
+      <a href="Term2.html" target="_blank" class="term-btn">เทอม 2/2568</a>
+      <a href="Term3.html" target="_blank" class="term-btn">เทอม 1/2569</a>
+      <a href="Term4.html" target="_blank" class="term-btn">เทอม 2/2569</a>
+      <a href="Term5.html" target="_blank" class="term-btn">เทอม 1/2570</a>
+      <a href="Term6.html" target="_blank" class="term-btn">เทอม 2/2570</a>
+    </div>
+
+    <a href="vab1.html" class="back-btn">← กลับหน้าแรก</a>
+
+  </section>
+
+  <script>
+    // สร้างวงกลมลอย
+    const bubbleContainer = document.getElementById('bubbles');
+    for (let i = 0; i < 30; i++) {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      const size = 20 + Math.random() * 50;
+      b.style.width  = size + 'px';
+      b.style.height = size + 'px';
+      b.style.left   = Math.random() * 100 + '%';
+      b.style.top    = Math.random() * 100 + '%';
+      b.style.setProperty('--d', (2 + Math.random() * 3) + 's');
+      b.style.animationDelay = (Math.random() * 3) + 's';
+      b.style.opacity = 0.4 + Math.random() * 0.5;
+      bubbleContainer.appendChild(b);
+    }
+
+    // สร้างดาว
+    const starContainer = document.getElementById('stars');
+    for (let i = 0; i < 200; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top  = Math.random() * 100 + '%';
+      s.style.setProperty('--d', (1 + Math.random() * 3) + 's');
+      s.style.animationDelay = (Math.random() * 4) + 's';
+      s.style.width = s.style.height = (Math.random() * 3 + 1) + 'px';
+      starContainer.appendChild(s);
+    }
+  </script>
+
+</body>
+</html>
